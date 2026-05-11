@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F6F2EE">
+<title>Kontaktai — Projektų Galia</title>
+<meta name="description" content="Susisiekite per WhatsApp, Viber, Telegram, telefonu ar el. paštu. Pateikite užklausą su dokumentais — atsakysim per 24 val.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand"><span class="brand-mark">P</span><span>Projektų <span class="word">Galia</span></span></a>
+    <nav class="nav-links">
+      <a href="index.html">Pradžia</a>
+      <a href="services.html">Paslaugos</a>
+      <a href="pricing.html">Kainos</a>
+      <a href="service.html">SEO pavyzdys</a>
+      <a href="contact.html" class="is-active">Kontaktai</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang-switch"><button class="is-active">LT</button><span>·</span><button>RU</button></div>
+      <a href="#form" class="btn btn-primary">Užklausa <span class="arrow">→</span></a>
+      <button class="nav-toggle" aria-label="Meniu"><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <a href="index.html">Pradžia <span>→</span></a>
+  <a href="services.html">Paslaugos <span>→</span></a>
+  <a href="pricing.html">Kainos <span>→</span></a>
+  <a href="service.html">SEO pavyzdys <span>→</span></a>
+  <a href="contact.html">Kontaktai <span>→</span></a>
+</div>
+
+<section class="section" style="padding-bottom:48px;">
+  <div class="wrap">
+    <div class="bread"><a href="index.html">Pradžia</a><span class="sep">/</span><span>Kontaktai</span></div>
+    <div class="hero-grid">
+      <div class="reveal">
+        <div class="eyebrow hero-eyebrow">Susisiekime</div>
+        <h1>Pradėkim nuo <span class="it">vieno pokalbio.</span></h1>
+        <p class="hero-lede" style="margin-top:24px;">Atsakome per 24 valandas. Jei skubu — rašykite į WhatsApp ar Telegram, atsakysime greičiau.</p>
+      </div>
+      <div class="reveal" style="align-self:end;">
+        <div class="cta-channels">
+          <a href="https://wa.me/37060000000" class="cta-channel"><span class="ch-label"><small>WhatsApp</small><strong>+370 600 00 000</strong></span><span class="arrow">→</span></a>
+          <a href="viber://chat?number=%2B37060000000" class="cta-channel"><span class="ch-label"><small>Viber</small><strong>+370 600 00 000</strong></span><span class="arrow">→</span></a>
+          <a href="https://t.me/projektugalia" class="cta-channel"><span class="ch-label"><small>Telegram</small><strong>@projektugalia</strong></span><span class="arrow">→</span></a>
+          <a href="tel:+37060000000" class="cta-channel"><span class="ch-label"><small>Telefonas</small><strong>+370 600 00 000</strong></span><span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="form" style="padding-top:0;">
+  <div class="wrap">
+    <div class="why" style="grid-template-columns: 5fr 7fr;">
+      <div class="reveal">
+        <div class="eyebrow" style="margin-bottom:20px;">Užklausa</div>
+        <h2>Aprašykite <span class="it">savo situaciją.</span></h2>
+        <p style="margin-top:24px;max-width:36ch;">Kuo daugiau detalių pateiksite — tuo tikslesnį atsakymą ir kainą gausite. Galite prisegti dokumentus (CV, esamas leidimas, raštai).</p>
+
+        <div style="margin-top:48px;border-top:1px solid var(--line);padding-top:24px;">
+          <h4 style="font-family:var(--font-body);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:500;margin-bottom:16px;">Adresas</h4>
+          <p style="margin:0;color:var(--ink);">Vilnius, Lietuva<br><span style="color:var(--ink-3);">(susitikimai pagal išankstinį susitarimą)</span></p>
+        </div>
+        <div style="margin-top:24px;">
+          <h4 style="font-family:var(--font-body);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:500;margin-bottom:16px;">Darbo laikas</h4>
+          <p style="margin:0;">I–V · 09:00–18:00<br><span style="color:var(--ink-3);">VI–VII pagal susitarimą</span></p>
+        </div>
+      </div>
+
+      <form class="contact-form reveal" novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label for="name">Vardas, pavardė</label>
+            <input id="name" type="text" name="name" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="phone">Telefonas</label>
+            <input id="phone" type="tel" name="phone" autocomplete="tel">
+          </div>
+          <div class="field full">
+            <label for="email">El. paštas</label>
+            <input id="email" type="email" name="email" required autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="topic">Tema</label>
+            <select id="topic" name="topic">
+              <option>LLG pratęsimas</option>
+              <option>Šeimos susijungimas</option>
+              <option>Įdarbinimas (įmonė)</option>
+              <option>Studijos</option>
+              <option>Dokumentai / vertimai</option>
+              <option>Kita</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="lang">Kalba</label>
+            <select id="lang" name="lang">
+              <option>Lietuvių</option>
+              <option>Русский</option>
+              <option>English</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="msg">Žinutė</label>
+            <textarea id="msg" name="msg" placeholder="Kuo galime padėti? Kokie terminai jūsų atveju?"></textarea>
+          </div>
+          <div class="field full">
+            <label>Prisegti dokumentus (CV, leidimas, raštas) · neprivaloma</label>
+            <label class="file-drop">
+              <input type="file" name="files" multiple>
+              <div>Tempkite failus čia arba <u>pasirinkite</u></div>
+              <div class="files"></div>
+            </label>
+          </div>
+          <div class="field full consent">
+            <input id="agree" type="checkbox" required>
+            <label for="agree" style="font-size:13px;letter-spacing:0;text-transform:none;color:var(--ink-3);">
+              Sutinku, kad mano duomenys būtų tvarkomi pagal <a href="#">privatumo politiką</a>. Atsakymą gausiu el. paštu arba telefonu.
+            </label>
+          </div>
+          <div class="field full" style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+            <button type="submit" class="btn btn-accent">Siųsti užklausą <span class="arrow">→</span></button>
+            <span class="form-success" style="display:none;color:var(--ok);font-size:14px;">Ačiū — gavome jūsų užklausą. Atsakysime per 24 val.</span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand"><h3>Likite Lietuvoje <em>ramiai.</em></h3><p>MB Projektų Galia — konsultacijos LLG ir migracijos klausimais.</p></div>
+      <div><h4>Paslaugos</h4><ul><li><a href="services.html">LLG pratęsimas</a></li><li><a href="services.html">Šeimos susijungimas</a></li><li><a href="services.html">Įdarbinimas</a></li></ul></div>
+      <div><h4>Įmonė</h4><ul><li><a href="index.html">Pradžia</a></li><li><a href="pricing.html">Kainos</a></li><li><a href="contact.html">Kontaktai</a></li></ul></div>
+      <div><h4>Kontaktai</h4><ul><li><a href="tel:+37060000000">+370 600 00 000</a></li><li>Vilnius, Lietuva</li></ul></div>
+    </div>
+    <div class="footer-bottom"><div>© 2026 MB Projektų Galia.</div><div>Privatumo politika</div></div>
+  </div>
+</footer>
+
+<style>.form-success.show{display:inline!important;}</style>
+<script src="assets/main.js" defer></script>
+</body>
+</html>

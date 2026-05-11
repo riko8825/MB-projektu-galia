@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0A0A0C">
+<title>Projektų Galia — sistemizuotos LLG ir migracijos paslaugos</title>
+<meta name="description" content="Sistemizuoti LLG pratęsimai ir migracijos paslaugos. Aiškūs procesai, realaus laiko bylos stebėjimas, lietuvių ir rusų kalbomis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  /* Force dark print rendering */
+  html, body { background:#0A0A0C !important; }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+  @page { size: A4 portrait; margin: 14mm 12mm; }
+
+  @media print {
+    .nav, .mobile-menu, .mobile-cta, .nav-toggle { display: none !important; }
+    .hero { padding-top: 32px !important; }
+    section { padding: 28px 0 !important; }
+    .section, .section-tight { padding: 28px 0 !important; }
+
+    /* Disable transforms/animations so reveals render */
+    .reveal, .reveal-stagger > * {
+      opacity: 1 !important; transform: none !important; transition: none !important;
+    }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+
+    /* Expand all FAQ answers */
+    .faq-a { max-height: none !important; }
+    .faq-a-inner { padding: 0 28px 22px !important; }
+    .faq-item .faq-q .icon { display:none !important; }
+
+    /* Page breaks */
+    .hero, section.section, section.section-tight, section.trust-strip, section.integ, section.process, footer.footer {
+      break-inside: avoid;
+    }
+    .hero { break-after: page; }
+    .trust-strip { break-after: page; }
+    .section, .section-tight { break-after: page; }
+    .footer { break-before: page; }
+
+    /* Avoid awkward splits */
+    .feat-card, .svc-card, .process-step, .seo-cell, .why-item, .faq-item, .cta-banner {
+      break-inside: avoid;
+    }
+
+    /* Tighten oversized hero text for paper */
+    h1 { font-size: 56px !important; line-height: 1.04 !important; }
+    h2 { font-size: 42px !important; }
+    h3 { font-size: 22px !important; }
+    .hero-lede, .lead { font-size: 17px !important; }
+    .wrap { max-width: 100% !important; padding: 0 !important; }
+
+    /* Make hero stack vertically on portrait page */
+    .hero-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+    .section-head { grid-template-columns: 1fr !important; gap: 20px !important; }
+    .feat-grid, .services-grid, .process-grid, .seo-grid, .why-list, .footer-grid, .cta-banner-inner {
+      grid-template-columns: 1fr 1fr !important; gap: 16px !important;
+    }
+    .trust-strip-inner { grid-template-columns: repeat(4, 1fr) !important; }
+
+    a { text-decoration: none !important; }
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "MB Projektų Galia",
+  "description": "Sistemizuotos LLG pratęsimo ir migracijos paslaugos užsieniečiams ir įmonėms Lietuvoje.",
+  "areaServed": "LT",
+  "availableLanguage": ["lt","ru"],
+  "telephone": "+370 600 00 000",
+  "email": "projektugalia@outlook.com",
+  "address": {"@type":"PostalAddress","addressCountry":"LT","addressLocality":"Vilnius"}
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand" aria-label="Projektų Galia">
+      <span class="brand-mark">P</span>
+      <span>Projektų <span class="word">Galia</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Pagrindinis meniu">
+      <a href="index.html" class="is-active">Pradžia</a>
+      <a href="services.html">Paslaugos</a>
+      <a href="pricing.html">Kainos</a>
+      <a href="service.html">SEO pavyzdys</a>
+      <a href="contact.html">Kontaktai</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang-switch" role="group" aria-label="Kalba">
+        <button type="button" class="is-active">LT</button>
+        <span>·</span>
+        <button type="button">RU</button>
+      </div>
+      <a href="contact.html" class="btn btn-accent">Konsultacija <span class="arrow">→</span></a>
+      <button class="nav-toggle" aria-label="Atidaryti meniu"><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <a href="index.html">Pradžia <span>→</span></a>
+  <a href="services.html">Paslaugos <span>→</span></a>
+  <a href="pricing.html">Kainos <span>→</span></a>
+  <a href="service.html">SEO pavyzdys <span>→</span></a>
+  <a href="contact.html">Kontaktai <span>→</span></a>
+  <div class="menu-cta">
+    <a href="contact.html" class="btn btn-accent">Užsisakyti konsultaciją <span class="arrow">→</span></a>
+    <a href="tel:+37060000000" class="btn btn-ghost">+370 600 00 000</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="reveal">
+        <div class="eyebrow hero-eyebrow">v3 · LLG · Imigracija · Įmonėms</div>
+        <h1>Migracijos sistema, <span class="it">kuri tiesiog veikia.</span></h1>
+        <p class="hero-lede">
+          Pratęsimai, leidimai ir dokumentai trečiųjų šalių piliečiams bei Lietuvos
+          įmonėms. Vienas portalas, aiškūs žingsniai, realaus laiko bylos stebėjimas —
+          be biurokratijos.
+        </p>
+        <div class="hero-cta">
+          <a href="contact.html" class="btn btn-accent">Užsisakyti konsultaciją <span class="arrow">→</span></a>
+          <a href="services.html" class="btn btn-ghost">Žiūrėti paslaugas</a>
+        </div>
+        <div class="hero-meta">
+          <div><span class="dot"></span> SLA 24 val.</div>
+          <div><span class="dot"></span> LT · RU · EN</div>
+          <div><span class="dot"></span> 15 min nemokamas auditas</div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal" aria-hidden="true">
+        <div class="hero-visual-inner">
+          <div class="hv-head">
+            <div class="dots"><span></span><span></span><span></span></div>
+            <div>BYLA · LLG-2026-0148</div>
+            <div class="live">LIVE</div>
+          </div>
+          <div class="hv-flow">
+            <div class="hv-row done">
+              <span class="node">01</span>
+              <span class="label">Pirma konsultacija<small>15 min · Zoom</small></span>
+              <span class="badge">Užbaigta</span>
+            </div>
+            <div class="hv-row done">
+              <span class="node">02</span>
+              <span class="label">Dokumentų komplektas<small>7 / 7 dokumentai</small></span>
+              <span class="badge">Užbaigta</span>
+            </div>
+            <div class="hv-row">
+              <span class="node">03</span>
+              <span class="label">Pateikta migracijai<small>Sprendimas iki 07-12</small></span>
+              <span class="badge">Vykdoma</span>
+            </div>
+            <div class="hv-row pending">
+              <span class="node">04</span>
+              <span class="label">Kortelės atsiėmimas<small>Vilnius · pagal susitarimą</small></span>
+              <span class="badge">Laukia</span>
+            </div>
+          </div>
+          <div class="hv-foot">
+            <span>Progresas <strong>50 %</strong></span>
+            <span>Atsakingas · <strong>L. Petrauskienė</strong></span>
+          </div>
+        </div>
+        <div class="hv-pill">Automatiniai priminimai · 24/7</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<section class="trust-strip">
+  <div class="wrap trust-strip-inner reveal-stagger">
+    <div class="trust-stat"><div class="num">600+</div><div class="lbl">išspręstos bylos</div></div>
+    <div class="trust-stat"><div class="num">12 m.</div><div class="lbl">migracijos patirties</div></div>
+    <div class="trust-stat"><div class="num">24 val.</div><div class="lbl">atsako SLA</div></div>
+    <div class="trust-stat"><div class="num">98 %</div><div class="lbl">teigiamų sprendimų</div></div>
+  </div>
+</section>
+
+<!-- INTEGRATIONS -->
+<section class="integ">
+  <div class="wrap">
+    <div class="integ-h">Integruota su Lietuvos institucijų sistemomis</div>
+    <div class="integ-grid reveal">
+      <span class="integ-chip"><span class="dot"></span>MIGRACIJA.LT</span>
+      <span class="integ-chip"><span class="dot"></span>UŽIMTUMO TARNYBA</span>
+      <span class="integ-chip"><span class="dot"></span>VMI</span>
+      <span class="integ-chip"><span class="dot"></span>SODRA</span>
+      <span class="integ-chip"><span class="dot"></span>NOTARŲ RŪMAI</span>
+      <span class="integ-chip"><span class="dot"></span>PAYSERA</span>
+      <span class="integ-chip"><span class="dot"></span>DOCUSIGN</span>
+      <span class="integ-chip"><span class="dot"></span>ZOOM</span>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE CARDS -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="reveal">
+        <div class="eyebrow" style="margin-bottom:20px;">Platforma</div>
+        <h2>Ne paslauga — <span class="it">sistema.</span></h2>
+      </div>
+      <div class="right reveal">
+        <p class="lead">
+          Kiekviena byla — savo portalas, savo terminai, savo atsakymai realiu laiku.
+          Jūs žinote kas vyksta, mes — kaip tai padaryti.
+        </p>
+      </div>
+    </div>
+
+    <div class="feat-grid reveal-stagger">
+
+      <div class="feat-card">
+        <div class="feat-viz">
+          <div class="viz-rows">
+            <div class="viz-row"><span class="vn"></span><span>doc_pasas.pdf</span><span class="vbar"></span></div>
+            <div class="viz-row hi"><span class="vn"></span><span>doc_darbo_sutartis.pdf</span><span class="vbar"></span></div>
+            <div class="viz-row"><span class="vn"></span><span>doc_pajamos_6mn.xlsx</span><span class="vbar"></span></div>
+            <div class="viz-row"><span class="vn"></span><span>doc_gyvenamoji.pdf</span><span class="vbar"></span></div>
+            <div class="viz-row hi"><span class="vn"></span><span>doc_draudimas.pdf</span><span class="vbar"></span></div>
+          </div>
+        </div>
+        <div class="feat-body">
+          <h3>Dokumentų auditas</h3>
+          <p>Įkelkite turimus dokumentus — patikriname struktūrą, terminus ir teikimo tinkamumą iki migracijos.</p>
+        </div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-viz">
+          <div class="viz-chart">
+            <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="cg" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0" stop-color="#A78BFA" stop-opacity="0.5"/>
+                  <stop offset="1" stop-color="#A78BFA" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <path d="M0,140 C40,135 60,120 90,110 C130,98 160,80 200,72 C240,64 280,52 320,40 L320,180 L0,180 Z" fill="url(#cg)"/>
+              <path d="M0,140 C40,135 60,120 90,110 C130,98 160,80 200,72 C240,64 280,52 320,40" stroke="#A78BFA" stroke-width="1.5" fill="none"/>
+              <circle cx="200" cy="72" r="3.5" fill="#A78BFA"/>
+              <circle cx="200" cy="72" r="7" fill="none" stroke="#A78BFA" stroke-opacity="0.4"/>
+            </svg>
+          </div>
+        </div>
+        <div class="feat-body">
+          <h3>Realaus laiko stebėjimas</h3>
+          <p>Matomas bylos statusas, kiekvieno žingsnio terminas ir kas šiandien jį tvarko. Be klausimų „kaip ten su mano byla?“.</p>
+        </div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-viz">
+          <div class="viz-nodes">
+            <svg class="workflow-svg" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+              <path class="line active" d="M40,90 L140,90"/>
+              <path class="line" d="M180,90 L280,90"/>
+              <path class="line" d="M160,70 L160,40"/>
+              <path class="line" d="M160,110 L160,140"/>
+              <circle class="node hi" cx="40" cy="90" r="9"/>
+              <circle class="node hi" cx="160" cy="90" r="11"/>
+              <circle class="node" cx="280" cy="90" r="9"/>
+              <circle class="node" cx="160" cy="30" r="7"/>
+              <circle class="node" cx="160" cy="150" r="7"/>
+              <text x="40" y="115" text-anchor="middle">klientas</text>
+              <text x="160" y="115" text-anchor="middle" fill="#C4B5FD">platforma</text>
+              <text x="280" y="115" text-anchor="middle">migracija</text>
+              <text x="160" y="22" text-anchor="middle">WhatsApp</text>
+              <text x="160" y="170" text-anchor="middle">notaras</text>
+            </svg>
+          </div>
+        </div>
+        <div class="feat-body">
+          <h3>Vienas kanalas viskam</h3>
+          <p>Klientas, notaras, vertėjas, migracija — viename pokalbyje. Be CC, be persiuntimų, be dingusių laiškų.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- AUTHORITY / WHY -->
+<section class="section-tight">
+  <div class="wrap why">
+    <div class="why-h reveal">
+      <div class="eyebrow" style="margin-bottom:24px;">Kodėl mumis pasitiki</div>
+      <h2>Tikra pagalba — <span class="it">be sudėtingų žodžių.</span></h2>
+      <p>Vadovaujame jus per visą procesą — nuo pirmo skambučio iki sprendimo. Klausimai naktį, dokumentai prieš šventes, neaiškūs raštai — viskas tvarkoma sistemingai ir laiku.</p>
+    </div>
+    <div class="why-list reveal-stagger">
+      <div class="why-item">
+        <div class="idx">01</div>
+        <div><h3>Pažįstama kalba</h3><p>LT, RU, EN. Aiškiname terminus paprastai, jokio teisinio žargono.</p></div>
+      </div>
+      <div class="why-item">
+        <div class="idx">02</div>
+        <div><h3>Aiškus procesas</h3><p>Žinote ką, kada ir kodėl darome. Kiekvienam žingsniui — terminas; kiekvienai bylai — atskiras kontaktas.</p></div>
+      </div>
+      <div class="why-item">
+        <div class="idx">03</div>
+        <div><h3>Bylos specifika</h3><p>Nedirbame šablonais. Kiekvieną situaciją vertiname atskirai — darbuotojas, šeima, studentas ar verslas.</p></div>
+      </div>
+      <div class="why-item">
+        <div class="idx">04</div>
+        <div><h3>Pagalba įmonėms</h3><p>Ilgalaikis HR pagrindas: kvietimai, įdarbinimo dokumentai, terminų stebėjimas serijiniu būdu.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="reveal">
+        <div class="eyebrow" style="margin-bottom:20px;">Paslaugos</div>
+        <h2>Ką tvarkome <span class="it">jūsų vardu.</span></h2>
+      </div>
+      <div class="right reveal">
+        <p class="lead">Visa tai, kas susiję su gyvenimu ir darbu Lietuvoje trečiųjų šalių piliečiams bei juos įdarbinančioms įmonėms.</p>
+      </div>
+    </div>
+
+    <div class="services-grid reveal-stagger">
+      <a class="svc-card" href="service.html">
+        <div class="num">01 / ASMENIMS</div>
+        <div>
+          <h3>LLG pratęsimas</h3>
+          <p>Leidimas laikinai gyventi darbo, šeimos, studijų ir kitais pagrindais. Pilnas dokumentų komplektas ir pateikimas.</p>
+        </div>
+        <div>
+          <div class="meta"><span class="tag">Darbo</span><span class="tag">Šeimos</span><span class="tag">Studijos</span></div>
+          <div class="more" style="margin-top:16px;">Sužinoti daugiau <span class="arrow">→</span></div>
+        </div>
+      </a>
+      <a class="svc-card" href="service.html">
+        <div class="num">02 / ĮMONĖMS</div>
+        <div>
+          <h3>Užsieniečių įdarbinimas</h3>
+          <p>Kvietimai, tarpininkavimas su Užimtumo tarnyba, dokumentų komplektai HR komandai. Long-term sutartys.</p>
+        </div>
+        <div>
+          <div class="meta"><span class="tag">Kvietimai</span><span class="tag">HR audit</span><span class="tag">SLA 4h</span></div>
+          <div class="more" style="margin-top:16px;">Sužinoti daugiau <span class="arrow">→</span></div>
+        </div>
+      </a>
+      <a class="svc-card" href="service.html">
+        <div class="num">03 / KONSULTACIJA</div>
+        <div>
+          <h3>Individuali konsultacija</h3>
+          <p>30 ar 60 min. pokalbis. Įvertinsime situaciją ir paruošime aiškų veiksmų planą su tikslia kaina.</p>
+        </div>
+        <div>
+          <div class="meta"><span class="tag">Online</span><span class="tag">Vilnius</span><span class="tag">LT·RU·EN</span></div>
+          <div class="more" style="margin-top:16px;">Sužinoti daugiau <span class="arrow">→</span></div>
+        </div>
+      </a>
+      <a class="svc-card" href="service.html">
+        <div class="num">04 / DOKUMENTAI</div>
+        <div>
+          <h3>Dokumentų paruošimas</h3>
+          <p>Prašymai, paaiškinimai, vertimai, notaro lydėjimas. Pateikiate iš karto teisingai.</p>
+        </div>
+        <div>
+          <div class="meta"><span class="tag">Vertimai</span><span class="tag">Notaras</span><span class="tag">Apostille</span></div>
+          <div class="more" style="margin-top:16px;">Sužinoti daugiau <span class="arrow">→</span></div>
+        </div>
+      </a>
+    </div>
+
+    <div style="margin-top:32px;display:flex;justify-content:flex-end;">
+      <a href="services.html" class="link">Visos paslaugos <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section process">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="reveal">
+        <div class="eyebrow" style="margin-bottom:20px;">Procesas</div>
+        <h2>Keturi žingsniai, <span class="it">be netikėtumų.</span></h2>
+      </div>
+      <div class="right reveal">
+        <p class="lead">Jūs žinote, kas vyksta kiekviename etape. Mes derinameisi prie jūsų tempo ir kalbame ta kalba, kuria jums lengviau.</p>
+      </div>
+    </div>
+
+    <div class="process-grid reveal-stagger">
+      <div class="process-step">
+        <div class="top"><span class="step-num">01</span><span class="step-tag">Pokalbis</span></div>
+        <div><h3>Pirma konsultacija</h3><p>Trumpas pokalbis. Įvertinam situaciją ir pasakom, ar galim padėti.</p></div>
+      </div>
+      <div class="process-step">
+        <div class="top"><span class="step-num">02</span><span class="step-tag">Planas</span></div>
+        <div><h3>Veiksmų planas</h3><p>Dokumentų sąrašas, terminai ir tiksli kaina. Be paslėptų mokesčių.</p></div>
+      </div>
+      <div class="process-step">
+        <div class="top"><span class="step-num">03</span><span class="step-tag">Vykdymas</span></div>
+        <div><h3>Tvarkome už jus</h3><p>Ruošiame, verčiame, pateikiame. Mes — jūsų kontaktas su institucijomis.</p></div>
+      </div>
+      <div class="process-step">
+        <div class="top"><span class="step-num">04</span><span class="step-tag">Rezultatas</span></div>
+        <div><h3>Leidimas rankose</h3><p>Lydime iki paskutinės dienos: priminimai, papildomi klausimai, pasiruošimas kitam pratęsimui.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEO GRID -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="reveal">
+        <div class="eyebrow" style="margin-bottom:20px;">Populiarios užklausos</div>
+        <h2>Greiti atsakymai <span class="it">pagal situaciją.</span></h2>
+      </div>
+      <div class="right reveal">
+        <p class="lead">Atskiri puslapiai dažniausiai užduodamiems klausimams — su terminais, kainomis ir reikalingais dokumentais.</p>
+      </div>
+    </div>
+
+    <div class="seo-grid reveal-stagger">
+      <a class="seo-cell" href="service.html"><div class="seo-loc">Vilnius</div><h4>LLG pratęsimas darbo pagrindu</h4><div class="seo-arrow">Žiūrėti <span class="arrow">→</span></div></a>
+      <a class="seo-cell" href="service.html"><div class="seo-loc">Kaunas</div><h4>Leidimas dirbti užsieniečiui</h4><div class="seo-arrow">Žiūrėti <span class="arrow">→</span></div></a>
+      <a class="seo-cell" href="service.html"><div class="seo-loc">Klaipėda</div><h4>Šeimos susijungimas</h4><div class="seo-arrow">Žiūrėti <span class="arrow">→</span></div></a>
+      <a class="seo-cell" href="service.html"><div class="seo-loc">Visa Lietuva</div><h4>Mėlynoji kortelė IT specialistams</h4><div class="seo-arrow">Žiūrėti <span class="arrow">→</span></div></a>
+      <a class="seo-cell" href="service.html"><div class="seo-loc">Įmonėms</div><h4>Užsienio specialisto įdarbinimas</h4><div class="seo-arrow">Žiūrėti <span class="arrow">→</span></div></a>
+      <a class="seo-cell" href="service.html"><div class="seo-loc">Studentams</div><h4>LLG studijų pagrindu pratęsimas</h4><div class="seo-arrow">Žiūrėti <span class="arrow">→</span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="padding-top:0;">
+  <div class="wrap faq">
+    <div class="reveal">
+      <div class="eyebrow" style="margin-bottom:20px;">Dažni klausimai</div>
+      <h2>Trumpi, <span class="it">aiškūs atsakymai.</span></h2>
+      <p style="margin-top:24px;max-width:34ch;">Neradote savo klausimo? Parašykite — atsakysime per dieną.</p>
+      <div style="margin-top:24px;"><a href="contact.html" class="link">Užduoti klausimą <span class="arrow">→</span></a></div>
+    </div>
+
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q" type="button">Kiek laiko užtrunka LLG pratęsimas?<span class="icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Standartinė procedūra Migracijos departamente trunka apie 2 mėnesius. Rekomenduojame pateikti dokumentus likus 3–4 mėn. iki dabartinio leidimo galiojimo pabaigos.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Ar galite tvarkyti viską nuotoliniu būdu?<span class="icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Daugumą darbų atliekame online. Asmeninis dalyvavimas reikalingas tik biometriniams duomenims ir kortelės atsiėmimui.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Kokia konsultacijos kaina?<span class="icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Pirmas 15 min. pokalbis — nemokamas. Pilna 60 min. konsultacija — 80 €. LLG pratęsimo paketas — nuo 350 €. Tikslią kainą pasakome iki darbo pradžios.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Kokiomis kalbomis bendraujate?<span class="icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Lietuvių, rusų, anglų. Visi raštai ir dokumentai — pasirinkta kalba.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Ką daryti, jei jau buvo atsisakymas?<span class="icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Įvertinsime motyvus ir paruošime apeliacinį skundą. Kuo greičiau kreipsitės — tuo daugiau galimybių sėkmingai apskųsti.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="cta-banner reveal">
+      <div class="cta-banner-inner">
+        <div>
+          <div class="eyebrow" style="margin-bottom:20px;">Pradėkime</div>
+          <h2>Pasakykite, kas <span class="it">jus jaudina</span> — imsime tvarkyti.</h2>
+          <p style="margin-top:22px;max-width:38ch;">15 minučių pokalbis — ir žinosite, ar galim padėti, kiek kainuos ir kiek truks. Be įsipareigojimų.</p>
+          <div class="cta-row" style="margin-top:24px;">
+            <a href="contact.html" class="btn btn-accent">Užsisakyti konsultaciją <span class="arrow">→</span></a>
+            <a href="tel:+37060000000" class="btn btn-ghost">+370 600 00 000</a>
+          </div>
+        </div>
+        <div class="cta-banner-right">
+          <div class="cta-channels">
+            <a href="https://wa.me/37060000000" class="cta-channel"><span class="ch-label"><small>WhatsApp</small><strong>+370 600 00 000</strong></span><span class="arrow">→</span></a>
+            <a href="viber://chat?number=%2B37060000000" class="cta-channel"><span class="ch-label"><small>Viber</small><strong>+370 600 00 000</strong></span><span class="arrow">→</span></a>
+            <a href="https://t.me/projektugalia" class="cta-channel"><span class="ch-label"><small>Telegram</small><strong>@projektugalia</strong></span><span class="arrow">→</span></a>
+            <a href="mailto:projektugalia@outlook.com" class="cta-channel"><span class="ch-label"><small>El. paštas</small><strong>projektugalia@outlook.com</strong></span><span class="arrow">→</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Migracijos sistema, kuri <span class="it">tiesiog veikia.</span></h3>
+        <p>MB Projektų Galia — sistemizuotos LLG ir migracijos paslaugos Lietuvos įmonėms ir trečiųjų šalių piliečiams.</p>
+      </div>
+      <div><h4>Paslaugos</h4><ul>
+        <li><a href="services.html">LLG pratęsimas</a></li>
+        <li><a href="services.html">Šeimos susijungimas</a></li>
+        <li><a href="services.html">Įdarbinimas</a></li>
+        <li><a href="services.html">Dokumentai</a></li>
+      </ul></div>
+      <div><h4>Įmonė</h4><ul>
+        <li><a href="index.html">Pradžia</a></li>
+        <li><a href="pricing.html">Kainos</a></li>
+        <li><a href="contact.html">Kontaktai</a></li>
+        <li><a href="service.html">SEO pavyzdys</a></li>
+      </ul></div>
+      <div><h4>Kontaktai</h4><ul>
+        <li><a href="tel:+37060000000">+370 600 00 000</a></li>
+        <li><a href="mailto:projektugalia@outlook.com">projektugalia@outlook.com</a></li>
+        <li>Vilnius, Lietuva</li>
+        <li>I–V · 09:00–18:00</li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 MB Projektų Galia</div>
+      <div>Privatumo politika · Slapukai</div>
+    </div>
+  </div>
+</footer>
+
+<a class="mobile-cta" href="contact.html">
+  <span>Užsisakyti konsultaciją</span>
+  <span aria-hidden="true">→</span>
+</a>
+
+<script>
+  // Auto-print once fonts + layout settle
+  window.addEventListener('load', async () => {
+    try { if (document.fonts && document.fonts.ready) await document.fonts.ready; } catch(e){}
+    // Force-open all FAQ panels
+    document.querySelectorAll('.faq-item').forEach(el => el.classList.add('is-open'));
+    setTimeout(() => window.print(), 600);
+  });
+</script>
+</body>
+</html>
