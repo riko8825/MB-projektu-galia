@@ -1,3 +1,17 @@
+// Google Translate init — must be a top-level global so Google's loader can call it
+function googleTranslateElementInit() {
+  /* global google */
+  new google.translate.TranslateElement(
+    {
+      pageLanguage: "lt",
+      includedLanguages: "lt,ru",
+      autoDisplay: false,
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    },
+    "google_translate_element"
+  );
+}
+
 // Projektų Galia — interactive layer
 (function () {
   "use strict";
@@ -55,12 +69,44 @@
     });
   }
 
-  // ---------- Language switch (LT / RU) — UI state only ----------
+  // ---------- Language switch (LT / RU) via Google Translate ----------
+  function setTranslateCookie(lang) {
+    // Google Translate reads "googtrans" cookie. Format: "/source/target"
+    var value = lang === "lt" ? "/lt/lt" : "/lt/" + lang;
+    var host = location.hostname;
+    document.cookie = "googtrans=" + value + ";path=/";
+    if (host && host.indexOf(".") !== -1) {
+      document.cookie = "googtrans=" + value + ";path=/;domain=" + host;
+      document.cookie = "googtrans=" + value + ";path=/;domain=." + host;
+    }
+  }
+
+  function getActiveLang() {
+    var m = document.cookie.match(/googtrans=\/lt\/([a-z]{2})/i);
+    if (m && m[1].toLowerCase() === "ru") return "ru";
+    return "lt";
+  }
+
+  function applyActiveLangUI(lang) {
+    document.querySelectorAll(".lang-switch").forEach(function (group) {
+      group.querySelectorAll("button").forEach(function (x) {
+        var isMatch = (x.textContent || "").trim().toLowerCase() === lang;
+        x.classList.toggle("is-active", isMatch);
+      });
+    });
+  }
+
+  // Initialise UI state from cookie on load
+  applyActiveLangUI(getActiveLang());
+
   document.querySelectorAll(".lang-switch button").forEach(function (b) {
     b.addEventListener("click", function () {
-      var group = b.parentElement;
-      group.querySelectorAll("button").forEach(function (x) { x.classList.remove("is-active"); });
-      b.classList.add("is-active");
+      var lang = (b.textContent || "").trim().toLowerCase();
+      if (lang !== "lt" && lang !== "ru") return;
+      setTranslateCookie(lang);
+      applyActiveLangUI(lang);
+      // Reload so Google Translate picks up the new cookie
+      location.reload();
     });
   });
 
@@ -133,6 +179,52 @@
       }
     });
   });
+
+  // ---------- Cookie banner ----------
+  (function initCookieBanner() {
+    var STORAGE_KEY = "pg_cookie_consent_v1";
+    var existing = null;
+    try { existing = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+    if (existing === "accepted" || existing === "rejected") return;
+
+    var banner = document.createElement("div");
+    banner.className = "cookie-banner";
+    banner.setAttribute("role", "dialog");
+    banner.setAttribute("aria-label", "Slapukų sutikimas");
+    banner.innerHTML =
+      '<h4>Naudojame slapukus</h4>' +
+      '<p>Šioje svetainėje naudojame būtinuosius slapukus, kad puslapis veiktų tinkamai, ir funkcinius slapukus (kalbos pasirinkimui per Google Translate). Daugiau informacijos — <a href="privacy-policy.html">privatumo politikoje</a>.</p>' +
+      '<div class="cookie-banner-actions">' +
+        '<button type="button" class="btn btn-ghost" data-cookie="reject">Atsisakyti</button>' +
+        '<button type="button" class="btn btn-accent" data-cookie="accept">Sutinku</button>' +
+      '</div>';
+    document.body.appendChild(banner);
+
+    requestAnimationFrame(function () {
+      banner.classList.add("is-open");
+    });
+
+    function setChoice(value) {
+      try { localStorage.setItem(STORAGE_KEY, value); } catch (e) {}
+      banner.classList.remove("is-open");
+      setTimeout(function () { banner.remove(); }, 320);
+      if (value === "rejected") {
+        // Clear Google Translate cookie so functional translation is dropped
+        document.cookie = "googtrans=;path=/;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        var host = location.hostname;
+        if (host && host.indexOf(".") !== -1) {
+          document.cookie = "googtrans=;path=/;domain=" + host + ";expires=Thu, 01 Jan 1970 00:00:00 GMT";
+          document.cookie = "googtrans=;path=/;domain=." + host + ";expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        }
+      }
+    }
+
+    banner.querySelectorAll("button[data-cookie]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        setChoice(btn.getAttribute("data-cookie") === "accept" ? "accepted" : "rejected");
+      });
+    });
+  })();
 
   // ---------- Active nav highlighting based on filename ----------
   var path = (location.pathname.split("/").pop() || "index.html").toLowerCase();
