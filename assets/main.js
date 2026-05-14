@@ -110,60 +110,53 @@ function googleTranslateElementInit() {
     });
   });
 
-  // ---------- File drop visual ----------
-  var fileDrop = document.querySelector(".file-drop");
-  if (fileDrop) {
-    var input = fileDrop.querySelector("input[type=file]");
-    var fileList = fileDrop.querySelector(".files");
-
-    function renderFiles(files) {
-      if (!fileList) return;
-      fileList.innerHTML = "";
-      Array.prototype.forEach.call(files, function (f) {
-        var row = document.createElement("div");
-        row.textContent = f.name + " · " + Math.round(f.size / 1024) + " KB";
-        fileList.appendChild(row);
-      });
-    }
-
-    ["dragenter", "dragover"].forEach(function (ev) {
-      fileDrop.addEventListener(ev, function (e) {
-        e.preventDefault(); e.stopPropagation();
-        fileDrop.classList.add("is-drag");
-      });
-    });
-    ["dragleave", "drop"].forEach(function (ev) {
-      fileDrop.addEventListener(ev, function (e) {
-        e.preventDefault(); e.stopPropagation();
-        fileDrop.classList.remove("is-drag");
-      });
-    });
-    fileDrop.addEventListener("drop", function (e) {
-      if (e.dataTransfer && e.dataTransfer.files && input) {
-        input.files = e.dataTransfer.files;
-        renderFiles(input.files);
-      }
-    });
-    if (input) {
-      input.addEventListener("change", function () { renderFiles(input.files); });
-    }
-  }
-
-  // ---------- Contact form (no backend yet — graceful UI feedback) ----------
+  // ---------- Contact form (Formspree) ----------
   var form = document.querySelector(".contact-form");
   if (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      var ok = form.querySelector(".form-success");
-      if (ok) {
-        ok.classList.add("show");
-        ok.style.display = "inline";
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
       }
+
+      var ok = form.querySelector(".form-success");
       var submitBtn = form.querySelector("button[type=submit]");
+      var prevLabel = submitBtn ? submitBtn.innerHTML : "";
+
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.style.opacity = "0.5";
+        submitBtn.textContent = "Siunčiama…";
       }
+
+      fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" }
+      })
+        .then(function (res) {
+          if (res.ok) {
+            if (ok) {
+              ok.classList.add("show");
+              ok.style.display = "inline";
+            }
+            form.reset();
+          } else {
+            throw new Error("Formspree returned " + res.status);
+          }
+        })
+        .catch(function () {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = "1";
+            submitBtn.innerHTML = prevLabel;
+          }
+          alert(
+            "Nepavyko išsiųsti užklausos. Parašykite mums per WhatsApp +370 688 02 600 arba el. paštu projektugalia@outlook.com."
+          );
+        });
     });
   }
 

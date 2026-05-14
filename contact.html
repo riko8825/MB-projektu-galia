@@ -75,7 +75,9 @@
         </div>
       </div>
 
-      <form class="contact-form reveal" novalidate>
+      <form class="contact-form reveal" action="https://formspree.io/f/xgodbnly" method="POST" novalidate>
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
+        <input type="hidden" name="_subject" value="Nauja užklausa — Projektų Galia">
         <div class="form-grid">
           <div class="field">
             <label for="name">Vardas, pavardė</label>
@@ -113,15 +115,11 @@
             <textarea id="msg" name="msg" placeholder="Kuo galime padėti? Kokie terminai jūsų atveju?"></textarea>
           </div>
           <div class="field full">
-            <label>Prisegti dokumentus (CV, leidimas, raštas) · neprivaloma</label>
-            <label class="file-drop">
-              <input type="file" name="files" multiple>
-              <div>Tempkite failus čia arba <u>pasirinkite</u></div>
-              <div class="files"></div>
-            </label>
+            <label>Dokumentai (CV, leidimas, raštas)</label>
+            <p style="margin:0;font-size:13px;color:var(--ink-3);">Dokumentus atsiųskite per <a href="https://wa.me/37068802600" target="_blank" rel="noopener">WhatsApp</a> arba el. paštu <a href="mailto:projektugalia@outlook.com">projektugalia@outlook.com</a> — taip greičiausiai įvertinsime jūsų situaciją.</p>
           </div>
           <div class="field full consent">
-            <input id="agree" type="checkbox" required>
+            <input id="agree" type="checkbox" name="sutikimas" value="Taip" required>
             <label for="agree" style="font-size:13px;letter-spacing:0;text-transform:none;color:var(--ink-3);">
               Sutinku, kad mano duomenys būtų tvarkomi pagal <a href="#">privatumo politiką</a>. Atsakymą gausiu el. paštu arba telefonu.
             </label>
