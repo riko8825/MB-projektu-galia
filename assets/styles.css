@@ -1171,6 +1171,30 @@ h1 { margin-top: 24px; }
 
 @media (max-width: 900px) { .price-grid { grid-template-columns: 1fr; } }
 
+/* ========== CONTACT INFO ========== */
+.contact-info {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+  background: #fff;
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+}
+.ci-person { display: flex; gap: 16px; align-items: center; }
+.ci-person img { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; object-position: center top; flex: none; }
+.ci-name { margin: 0; font-weight: 600; color: var(--ink); }
+.ci-role { margin: 4px 0 0; font-size: 13px; color: var(--ink-3); }
+.ci-block { border-left: 1px solid var(--line); padding-left: 32px; }
+.ci-block h4 { font-family: var(--font-body); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); font-weight: 500; margin-bottom: 12px; }
+.ci-block p { margin: 0; color: var(--ink); }
+.ci-block span { color: var(--ink-3); }
+@media (max-width: 820px) {
+  .contact-info { grid-template-columns: 1fr; gap: 24px; padding: 24px 20px; }
+  .ci-block { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 24px; }
+}
+
 /* ========== CONTACT FORM ========== */
 .contact-form {
   background: #fff;
